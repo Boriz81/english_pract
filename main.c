@@ -3,6 +3,7 @@
 
 int main()
 {
+    int choice;
 
     while (true)
     {
@@ -13,6 +14,13 @@ int main()
         printf("1. Учить слова\n");
         printf("2. Добавить слово\n");
         printf("3. Выйти\n");
+
+        switch (choice)
+        {
+        case 1:
+            printf();
+        }
+        scanf("%d", &choice);
     }
 
     return 0;
