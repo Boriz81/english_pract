@@ -7,6 +7,7 @@ int main()
 {
     // Инициализация переменной для выбора пользователя
     int choice = 0; // Переменная для хранения выбора пользователя
+    
     Word test_word;
     Word words[5];
     char eng[10];
@@ -40,12 +41,10 @@ int main()
         switch (choice)
         {
         case 1:
-            printf("Вы выбрали 'Учить слова'.\n");
-	    
+            printf("Вы выбрали 'Учить слова' << back to the menu! набери 4\n");
             break;
         case 2:
-            printf("Вы выбрали 'Добавить слово'.\n");
-
+            printf("Вы выбрали 'Добавить слово' <<  back to the menu! набери 4\n");
             for (int i = 0; i < 5; i++) {
 		words[i].id = i + 1;
 		
@@ -54,8 +53,12 @@ int main()
 
 	    break;
         case 3:
+	
             printf("Выход из программы.\n");
             return 0;
+	    break;
+	case 4:
+	    choice = 0;
 	    break;
         default:
             printf("Неверный выбор. Пожалуйста, попробуйте снова.\n");
