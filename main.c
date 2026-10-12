@@ -11,8 +11,15 @@ int main()
     Word test_word;
     Word words[5];
     char eng[10];
+    char *eng_words[] = {"cat", "dog", "table", "pencil", "ball"};
+    char *rus_words[] = {"кот", "собака", "стол", "ручка", "мяч"};
     
-    
+    for (int i = 0; i < 5; i++) {
+	words[i].id = i + 1;
+	strcpy(words[i].english, eng_words[i]);
+	strcpy(words[i].russian, rus_words[i]);
+    }
+
     // Заполнение поля: id = 1, english = "hello", russian = "привет"
     test_word.id = 1;
     strcpy(test_word.english, "hello");
@@ -41,16 +48,21 @@ int main()
         switch (choice)
         {
         case 1:
-            printf("Вы выбрали 'Учить слова' << back to the menu! набери 4\n");
+            printf("Вы выбрали 'Учить слова' \n");
+
+	    printf("Список слов:\n");
+	    for (int i = 0; i < 5; i++) {
+		printf("%d. %s - %s\n", words[i].id, words[i].english, words[i].russian);
+	    }
+	    printf("\nНажмите 4 для возврата в меню\n");
             break;
         case 2:
             printf("Вы выбрали 'Добавить слово' <<  back to the menu! набери 4\n");
-            for (int i = 0; i < 5; i++) {
-		words[i].id = i + 1;
+           // for (int i = 0; i < 5; i++) {
+	   //	words[i].id = i + 1;
 		
 		//strcpy(words[i].english, scanf("%s", eng));
-	    }
-
+	   // }
 	    break;
         case 3:
 	
