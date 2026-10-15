@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 #include "include/word.h"
 int main()
 {
@@ -31,6 +32,7 @@ int main()
 
     while (true) // Бесконечный цикл для отображения меню и обработки выбора пользователя
     {
+	system("clear");
 	if (choice == 0) {
             printf("МЕНЮ:\n");
             printf("1. Учить слова\n");
@@ -55,14 +57,15 @@ int main()
 		printf("%d. %s - %s\n", words[i].id, words[i].english, words[i].russian);
 	    }
 	    printf("\nНажмите 4 для возврата в меню\n");
+	    printf("\nНажмите Enter для продолжения...");
+	    getchar(); // съедаем \n от scanf
+	    getchar(); // ждем Enter
             break;
         case 2:
-            printf("Вы выбрали 'Добавить слово' <<  back to the menu! набери 4\n");
-           // for (int i = 0; i < 5; i++) {
-	   //	words[i].id = i + 1;
-		
-		//strcpy(words[i].english, scanf("%s", eng));
-	   // }
+            printf("Вы выбрали 'Добавить слово' (пока еще не реализовано)\n");
+            printf("\nНажмите Enter для продолжения...");
+	    getchar();
+	    getchar();
 	    break;
         case 3:
 	
