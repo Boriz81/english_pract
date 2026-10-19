@@ -4,13 +4,15 @@
 #include <string.h>
 #include <stdlib.h>
 #include "include/word.h"
-int main()
-{
+int main() {
     // Инициализация переменной для выбора пользователя
     int choice = 0; // Переменная для хранения выбора пользователя
 
     Word words[5];
     char eng[10];
+
+    int correct = 0;
+    char answer[100];
     char *eng_words[] = {"cat", "dog", "table", "pencil", "ball"};
     char *rus_words[] = {"кот", "собака", "стол", "ручка", "мяч"};
 
@@ -21,24 +23,21 @@ int main()
         strcpy(words[i].russian, rus_words[i]);
     }
 
-    printf("=== АНГЛО-РУССКИЙ ПРАКТИКУМ ===\n");
-    printf("Версия 0.1\n");
-    printf("Программа запущена успешно!\n");
 
     while (true) // Бесконечный цикл для отображения меню и обработки выбора пользователя
     {
-<<<<<<< HEAD
+
 	system("clear");
-	if (choice == 0) {
-=======
-        if (choice == 0)
-        {
->>>>>>> 82ece2326cc4903db292b5240f3373b76f10219b
-            printf("МЕНЮ:\n");
-            printf("1. Учить слова\n");
-            printf("2. Добавить слово\n");
-            printf("3. Выйти\n");
-        }
+
+        printf("=== АНГЛО-РУССКИЙ ПРАКТИКУМ ===\n");
+        printf("Версия 0.1\n");
+        printf("Программа запущена успешно!\n");
+
+        printf("МЕНЮ:\n");
+        printf("1. Учить слова\n");
+        printf("2. Добавить слово\n");
+        printf("3. Выйти\n");
+
 
         if (scanf("%d", &choice) != 1)
         {
@@ -53,13 +52,27 @@ int main()
         {
         case 1:
             printf("Вы выбрали 'Учить слова' \n");
+	    
 
-<<<<<<< HEAD
-	    printf("Список слов:\n");
+
+	    //printf("Список слов:\n");
+	    //for (int i = 0; i < 5; i++) {
+		//printf("%d. %s - %s\n", words[i].id, words[i].english, words[i].russian);
+	    //}
+
 	    for (int i = 0; i < 5; i++) {
-		printf("%d. %s - %s\n", words[i].id, words[i].english, words[i].russian);
+	        printf("\nВопрос %d из 5:\n", i + 1);
+		printf("Слово: %s\n", words[i].english);
+		printf("Введите перевод: ");
+
+	        scanf("%s", answer);
+	    	    if (strcmp(answer, words[i].russian) == 0) {
+			printf("Perfecto!!!");
+			correct++;
+	    	    } else {printf("NAIN!!! Правильный ответ: %s\n", words[i].russian);}
 	    }
-	    printf("\nНажмите 4 для возврата в меню\n");
+	    
+            printf("\nРезультат: %d из 5\n", correct);
 	    printf("\nНажмите Enter для продолжения...");
 	    getchar(); // съедаем \n от scanf
 	    getchar(); // ждем Enter
@@ -67,34 +80,17 @@ int main()
         case 2:
             printf("Вы выбрали 'Добавить слово' (пока еще не реализовано)\n");
             printf("\nНажмите Enter для продолжения...");
-	    getchar();
-	    getchar();
-	    break;
-=======
-            printf("Список слов:\n");
-            for (int i = 0; i < 5; i++)
-            {
-                printf("%d. %s - %s\n", words[i].id, words[i].english, words[i].russian);
-            }
-            printf("\nНажмите 4 для возврата в меню\n");
-            break;
-        case 2:
-            printf("Вы выбрали 'Добавить слово' <<  back to the menu! набери 4\n");
-            // for (int i = 0; i < 5; i++) {
-            //	words[i].id = i + 1;
+            getchar(); // съедаем \n от scanf
+            getchar(); // ждем Enter
 
-            // strcpy(words[i].english, scanf("%s", eng));
-            // }
-            break;
->>>>>>> 82ece2326cc4903db292b5240f3373b76f10219b
+	    break;
+
         case 3:
 
             printf("Выход из программы.\n");
             return 0;
-            break;
-        case 4:
-            choice = 0;
-            break;
+
+
         default:
             printf("Неверный выбор. Пожалуйста, попробуйте снова.\n");
             break;
